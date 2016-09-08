@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
 
   def index 
 
-     @expenses = User.find(current_user).expenses
+     @expenses = User.find(current_user.id).expenses
 
     if params[:concept].present?
       @expenses = @expenses.where("concept LIKE ?", "%#{params[:concept]}%")
